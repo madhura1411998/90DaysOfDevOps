@@ -114,6 +114,12 @@ sudo usermod -aG sudo devops_team.
 ```
 
 ## 3. Restrict SSH login for certain users in /etc/ssh/sshd_config.
+### 3.1 Edit the SSH Configuration File
+Open the SSH configuration file /etc/ssh/sshd_config in a text editor:
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+### 3.2 Restrict SSH Access
 To restrict SSH access to specific users (e.g., devops_user), add the following line to the file:
 ```bash
 AllowUsers devops_user
@@ -124,11 +130,12 @@ AllowUsers devops_user user2 user3
 ```
 NOTE
 OR, alternatively you can use DenyUsers to explicitly deny SSH access to certain users while allowing all others. For example:
-
+```bash
 DenyUsers user1 user2
+```
 This denies SSH access to user1 and user2 while allowing all other users.
 
-3.3 Restart the SSH Service
+### 3.3 Restart the SSH Service
 After making changes, restart the SSH service to apply the new configuration:
 ```bash
 sudo systemctl restart sshd
