@@ -87,12 +87,13 @@ The output should include sudo, confirming that devops_user has been granted sud
 
 Verify sudo access by switching to devops_user and running a command with sudo:
 ```bash
-su - devops_user
+su devops_user
 sudo ls /root
 ```
 If prompted for a password, enter the password for devops_user. If the command executes successfully, sudo access is granted.
 You can also test by logging in as devops_user and run a sudo command, such as:
 ```bash
+su devops_user
 sudo whoami
 ```
 The output should be root, indicating the user can run commands with sudo privileges.
