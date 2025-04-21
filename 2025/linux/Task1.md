@@ -9,7 +9,7 @@
 
 ### 1. Using useradd
 ```bash
-sudo useradd -m -s /bin/bash devops_user
+sudo useradd -m devops_user -s /bin/bash
 ```
 
 Explanation:
