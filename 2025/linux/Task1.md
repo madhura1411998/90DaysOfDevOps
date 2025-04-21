@@ -12,7 +12,7 @@ useradd is a low-level command used for creating a new user.
 
 ```bash
 sudo useradd -m -s /bin/bash devops_user
-```bash
+```
 
 Explanation:
 sudo – run with root privileges
@@ -25,14 +25,14 @@ devops_user – the username
 
 ```bash
 sudo passwd devops_user
-```bash
+```
 
 ### 2. Using adduser
 adduser is more user-friendly and often used on Debian-based systems.
 
 ```bash
 sudo adduser devops_user
-```bash
+```
 
 This will prompt you interactively for:
 Password,Full name,Room number, work phone, etc. (can skip),Confirmation
