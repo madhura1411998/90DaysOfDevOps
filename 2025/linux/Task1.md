@@ -5,14 +5,14 @@
 3. Restrict SSH login for certain users in /etc/ssh/sshd_config.
 
 ## Create a user devops_user and add them to a group devops_team.
-# Creating a User in Linux
+# 1.1 Creating a User in Linux
 
-### 1. Using useradd
+We can create a user using 'useradd' and 'adduser' commands as shown below:
+
+**Using useradd**
 ```bash
 sudo useradd -m devops_user -s /bin/bash
 ```
-
-Explanation:
 1. sudo – run with root privileges
 2. useradd – command to add the user
 3. -m – create the home directory /home/devops_user
@@ -25,7 +25,7 @@ Explanation:
 sudo passwd devops_user
 ```
 
-### 2. Using adduser
+**Using adduser**
 ```bash
 sudo adduser devops_user
 ```
@@ -38,3 +38,25 @@ Password,Full name,Room number, work phone, etc. (can skip),Confirmation
 2. Sets correct permissions
 3. Adds shell (/bin/bash by default)
 
+# 2.2 Creating a devops_team group  and add user devops_user to devops_team group
+To create a devops_team group and add the user devops_user to this group in Linux, follow these steps:
+
+Create the group: You can use the groupadd command to create a new group called devops_team:
+
+```bash
+sudo groupadd devops_team
+```
+Add the user to the group: Use the usermod command to add the user devops_user to the devops_team group:
+
+```bash
+sudo usermod -aG devops_team devops_user
+# OR
+sudo gpasswd -a devops_user devops_team
+```bash
+-a stands for "append" (ensures the user is added to the group without removing them from other groups).
+-G specifies the group to which the user will be added.
+
+Verify the user has been added to the group: You can check that the user is in the group by running:
+```bash
+groups devops_user
+```bash
