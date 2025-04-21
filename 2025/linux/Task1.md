@@ -15,11 +15,11 @@ sudo useradd -m -s /bin/bash devops_user
 ```
 
 Explanation:
-sudo – run with root privileges
-useradd – command to add the user
--m – create the home directory /home/devops_user
--s /bin/bash – set the default shell to /bin/bash
-devops_user – the username
+1. sudo – run with root privileges
+2. useradd – command to add the user
+3. -m – create the home directory /home/devops_user
+4. -s /bin/bash – set the default shell to /bin/bash
+5. devops_user – the username
 
 👉 Optionally, set a password:
 
@@ -34,18 +34,11 @@ adduser is more user-friendly and often used on Debian-based systems.
 sudo adduser devops_user
 ```
 
-This will prompt you interactively for:
+**This will prompt you interactively for:**
 Password,Full name,Room number, work phone, etc. (can skip),Confirmation
 
-adduser automatically:
-Creates the home directory
-Sets correct permissions
-Adds shell (/bin/bash by default)
+**adduser automatically:**
+1. Creates the home directory
+2. Sets correct permissions
+3. Adds shell (/bin/bash by default)
 
-✅ Summary
-
-Feature	useradd	adduser
-Type	Low-level	High-level script
-Home dir created?	Only with -m	Yes (by default)
-Shell set?	Must specify with -s	Defaults to /bin/bash
-Interactive?	No	Yes
