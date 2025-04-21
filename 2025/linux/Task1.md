@@ -63,13 +63,13 @@ groups devops_user
 ```
 
 ## 2. Set a password for devops_user and grant sudo access.
-2.1 Set a password for the user devops_user:
+### 2.1 Set a password for the user devops_user:
 Use the passwd command to set a password for devops_user:
 ```bash
 sudo passwd devops_user
 ```
 
-2.2 Grant sudo access to the user:
+### 2.2 Grant sudo access to the user:
 To grant sudo access, you need to add devops_user to the sudo group. This can be done using the usermod command:
 
 ```bash
@@ -98,7 +98,7 @@ sudo whoami
 ```
 The output should be root, indicating the user can run commands with sudo privileges.
 
-2.3 Grant Sudo Access to all members of a Group (Optional)
+### 2.3 Grant Sudo Access to all members of a Group (Optional)
 Open the /etc/sudoers file using the visudo command
 
 sudo visudo
