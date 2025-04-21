@@ -106,4 +106,9 @@ Add the following line to grant sudo access to all members of the devops_team gr
 ```bash
 %devops_team ALL=(ALL:ALL) ALL
 ```
+
+Alternatively, To grant sudo access to all members of group , you need to add group devops_team to the sudo group. This can be done by using usermod command
+```bash
+sudo usermod -aG sudo devops_team.
+```
  
