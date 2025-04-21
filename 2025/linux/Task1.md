@@ -8,8 +8,6 @@
 # Creating a User in Linux
 
 ### 1. Using useradd
-useradd is a low-level command used for creating a new user.
-
 ```bash
 sudo useradd -m -s /bin/bash devops_user
 ```
@@ -28,8 +26,6 @@ sudo passwd devops_user
 ```
 
 ### 2. Using adduser
-adduser is more user-friendly and often used on Debian-based systems.
-
 ```bash
 sudo adduser devops_user
 ```
