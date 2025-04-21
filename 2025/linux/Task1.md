@@ -100,8 +100,9 @@ The output should be root, indicating the user can run commands with sudo privil
 
 ### 2.3 Grant Sudo Access to all members of a Group (Optional)
 Open the /etc/sudoers file using the visudo command
-
+```bash
 sudo visudo
+```
 Add the following line to grant sudo access to all members of the devops_team group:
 ```bash
 %devops_team ALL=(ALL:ALL) ALL
@@ -111,4 +112,49 @@ Alternatively, To grant sudo access to all members of group , you need to add gr
 ```bash
 sudo usermod -aG sudo devops_team.
 ```
- 
+
+## 3. Restrict SSH login for certain users in /etc/ssh/sshd_config.
+To restrict SSH access to specific users (e.g., devops_user), add the following line to the file:
+```bash
+AllowUsers devops_user
+```
+This ensures that only devops_user can log in via SSH. If you want to allow multiple users, separate them with a space:
+```bash
+AllowUsers devops_user user2 user3
+```
+NOTE
+OR, alternatively you can use DenyUsers to explicitly deny SSH access to certain users while allowing all others. For example:
+
+DenyUsers user1 user2
+This denies SSH access to user1 and user2 while allowing all other users.
+
+3.3 Restart the SSH Service
+After making changes, restart the SSH service to apply the new configuration:
+```bash
+sudo systemctl restart sshd
+```
+3.4 Verify SSH Access
+Attempt to log in via SSH as a user not listed in AllowUsers. The login should be denied. Then, log in as devops_user to confirm access.
+
+Find the Server's or local IP Address
+To connect to the SSH server, you need its IP address. Use the following command to find it:
+```bash
+ip a
+```
+Look for the inet address under your network interface (e.g., eth0 or wlp2s0). For example:
+```bash
+inet 172.168.1.100/24
+```
+Authenticate using SSH
+On another machine (or the same machine if you're testing locally), use the ssh command to connect:
+```bash
+ssh devops_user@172.168.1.100
+```
+Replace 172.168.1.100 with the IP address of your SSH server (or local device).
+You will be prompted to enter the password for ssh_user. Enter the password you set previously. Example Output:
+```bash
+devops_user@172.168.1.100's password:
+Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-83-generic x86_64)
+...
+devops_user@hostname:~$
+```
