@@ -38,7 +38,7 @@ Password,Full name,Room number, work phone, etc. (can skip),Confirmation
 2. Sets correct permissions
 3. Adds shell (/bin/bash by default)
 
-# 2.2 Creating a devops_team group  and add user devops_user to devops_team group
+# 1.2 Creating a devops_team group
 To create a devops_team group and add the user devops_user to this group in Linux, follow these steps:
 
 Create the group: You can use the groupadd command to create a new group called devops_team:
@@ -46,6 +46,7 @@ Create the group: You can use the groupadd command to create a new group called 
 ```bash
 sudo groupadd devops_team
 ```
+# 1.3 Add user devops_user to group devops_team
 Add the user to the group: Use the usermod command to add the user devops_user to the devops_team group:
 
 ```bash
