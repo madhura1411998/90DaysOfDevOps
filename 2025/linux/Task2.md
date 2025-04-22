@@ -19,8 +19,11 @@ To save and exit from vim editor press esc and type :wq
 ```bash
 cd ..
 chmod 640 -R devops_workspace
+sudo chown -R devops_user:devops_team devops_workspace
 ```
+chmod : to modify permissions
 -R : recursively sets permission 640 for directory and its hierarchy files and folders
+chown : to modify owner and group of directory/files
 
 ## 3. Use ls -l to verify permissions
 ```bash
@@ -37,4 +40,10 @@ cd devops_workspace
 ubuntu@ip-172-31-42-65:~/devops_workspace$ ls -l
 total 4
 -rw-rw-r-- 1 ubuntu ubuntu 27 Apr 22 06:37 project_notes.txt
+```
+### 4. To Verify
+try to cd in to devops_workspace using ubuntu user , Output should be permission denied
+```bash
+ubuntu@ip-172-31-42-65:~$ ubuntu@ip-172-31-42-65:~$ cd devops_workspace/
+-bash: cd: devops_workspace/: Permission denied
 ```
